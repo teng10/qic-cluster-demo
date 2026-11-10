@@ -18,6 +18,8 @@ scripts/fetch_data.sh     rsync results from Jed into ./data/
 notebooks/analysis.ipynb  plots + exact-diagonalization check (Python, numpy/matplotlib)
 ```
 
+**Step-by-step cluster instructions, including monitoring and resubmitting failed tasks: [CLUSTER_GUIDE.md](CLUSTER_GUIDE.md).**
+
 ## 1. Run locally (quick test)
 
 ```bash
