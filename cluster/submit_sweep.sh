@@ -50,9 +50,11 @@ echo "common args: $COMMON_ARGS"
 echo "output dir:  $SWEEP_DIR"
 
 cd "$REPO"
+# Pass settings through the environment: --export=VAR=value would split on commas (e.g. sites=3,7,12).
+export SWEEP_DIR COMMON_ARGS
 # shellcheck disable=SC2086
 sbatch --array="1-${N}%${MAX_CONCURRENT}" \
        --output="$SWEEP_DIR/logs/%x_%A_%a.out" \
-       --export=ALL,SWEEP_DIR="$SWEEP_DIR",COMMON_ARGS="$COMMON_ARGS" \
+       --export=ALL \
        $SBATCH_EXTRA \
        cluster/tfim_array.sbatch

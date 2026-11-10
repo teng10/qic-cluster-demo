@@ -43,7 +43,7 @@ Then
 
 ```bash
 ssh jed
-git clone <this repo url> qic-cluster-test && cd qic-cluster-test
+git clone https://github.com/teng10/qic-cluster-test.git && cd qic-cluster-test
 bash cluster/setup_jed.sh
 ```
 

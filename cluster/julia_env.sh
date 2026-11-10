@@ -6,7 +6,10 @@ if [ -n "${JULIA_BIN:-}" ]; then
 fi
 if ! command -v julia >/dev/null 2>&1; then
     if command -v module >/dev/null 2>&1; then
-        module load julia 2>/dev/null || true
+        # module scripts may reference unset variables; don't let `set -u` in the caller abort
+        _jl_opts=$-; set +u
+        module load julia >/dev/null 2>&1 || true
+        case $_jl_opts in *u*) set -u ;; esac
     fi
 fi
 if ! command -v julia >/dev/null 2>&1; then
