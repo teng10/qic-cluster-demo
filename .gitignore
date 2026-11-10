@@ -1,0 +1,8 @@
+# simulation output and figures (fetched from the cluster / produced locally)
+data/
+figures/
+*.out
+# notebook / editor junk
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
